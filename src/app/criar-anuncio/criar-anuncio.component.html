@@ -1,0 +1,83 @@
+    <section class="content-header">
+    </section>
+
+    <section class="content">
+      <section class="invoice">
+
+            <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h2 class="page-header">
+                    Novo anúncio
+                  </h2>
+                </div>
+              </div>
+
+              <div class="row invoice-info">
+                <div class="col-xs-12">
+                  <p class="lead">Dados do anúncio</p>
+                </div>
+                <div class="col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <input type="file" frequired (change)="onImageChange($event)">
+                    <input type="text" style="display:none" formControlName="imagePath">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Carro</label>
+                    <select class="form-control" required formControlName="name" id="inputSuccess" class="form-select">
+                        <option *ngFor="let carro of carros" [ngValue]="carro.nome">
+                          {{carro.nome}}
+                        </option>
+                    </select>
+                    <span class="help-block"></span>
+                  </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                  <div class="form-group has-success">
+                    <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Ano</label>
+                    <select class="form-control" required formControlName="ano" id="inputSuccess" class="form-select">
+                        <option *ngFor="let ano of anos" [ngValue]="ano.nome">
+                          {{ano.nome}}
+                        </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                  <div class="form-group has-error">
+                    <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Valor</label>
+                    <input type="text" class="form-control" required formControlName="valor" id="inputSuccess" placeholder="Valor">
+                  </div>
+
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+              <div class="row invoice-info">
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Quilometragem</label>
+                    <input type="text" class="form-control" required formControlName="km" id="inputSuccess" placeholder="Quilometragem">
+                    <span class="help-block"></span>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                  <div class="form-group has-error">
+                    <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Cor</label>
+                    <input type="text" class="form-control" required formControlName="cor" id="inputSuccess" placeholder="Cor">
+                  </div>
+
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+              <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                </div>
+              </div>
+            </form>
+
+        </section>
+    </section>
